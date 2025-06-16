@@ -48,7 +48,8 @@ public class Matrizes2 {
         System.out.println("Existem " + contaNotas + " notas abaixo de 7,5");
         System.out.println("A menor média é : " + menorMedia);
         System.out.println("A maior média é : " + maiorMedia);
-        System.out.println("** Fim de Programa **");        
+        System.out.println("** Fim de Programa **"); 
+        sc.close();
 	}
 	
 	
@@ -64,7 +65,7 @@ public class Matrizes2 {
 		for (int lin = 0; lin < 3; lin++) {
 			System.out.println("Aluno: " + pVetNomes[lin] + "   Média : " + pVetMedia[lin] + 
 					           "     Situação : " + pVetSituacao[lin]);
-			System.out.println("Notas");
+			System.out.print("Notas: ");
 			for (int col = 0; col < 3; col++) {
 				if (col < 2) {
 					System.out.print(pMatNotas[lin][col] + " - ");

@@ -5,11 +5,14 @@ import java.util.Scanner;
 public class MediaVetores {
 
 	public static void main(String[] args) {
-		// 
+		// Faça um programa que descubra:
+		// a) O maior elemento de um vetor
+		// b) O menor elemento de um vetor
+		// c) A média dos valores
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int[] numeros = new int[4];
+		int[] numeros = new int[5];
 		// Entrada de dados
 		for (int i = 0; i < numeros.length; i++) {
 			System.out.print("Informe o " + (i + 1) + "º número: ");
