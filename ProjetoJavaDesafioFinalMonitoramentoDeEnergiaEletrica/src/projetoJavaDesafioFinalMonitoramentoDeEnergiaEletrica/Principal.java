@@ -1,0 +1,139 @@
+package projetoJavaDesafioFinalMonitoramentoDeEnergiaEletrica;
+
+import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class Principal {
+
+	// Constantes Globais
+	public static final int NUMERO_MES = 12;
+	public static final String[] MES_ANO = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
+			"Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
+
+	public static void main(String[] args) throws IOException {
+		// Desenvolver um programa em Java que permita ao usuário:
+		// 1. Informar o consumo mensal (kWh) de 12 meses consecutivos.
+		// 2. Armazenar os valores em um vetor.
+		// 3. Utilizar funções para:
+		// o Calcular o consumo total;
+		// o Calcular a média mensal;
+		// o Identificar o mês com maior e menor consumo;
+		// o Classificar o consumo:
+		//  Até 150 kWh/mês → Baixo
+		//  De 151 a 300 kWh/mês → Moderado
+		//  Acima de 300 kWh/mês → Elevado
+		// 4. Apresentar um relatório final com todas as informações organizadas
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("=====Consumo mensal de kwh=====");
+		int[] consumoMeses = new int[NUMERO_MES];
+		// Entrada de dados
+		for (int i = 0; i < NUMERO_MES; i++) {
+			System.out.print("Informe o consumo de kwh do mês de " + MES_ANO[i] + ": ");
+			consumoMeses[i] = sc.nextInt();
+		}
+		sc.close();
+		// Criar o arquivo de relatório
+		PrintWriter out = new PrintWriter(new FileWriter("Relatório_consumo.txt"));
+		// Gerar os relatórios no console e no arquivo
+		ConsumoTotalkwheMedia(consumoMeses, out);
+		MaiorMenorConsumoKwh(consumoMeses, out);
+		ClassificacaoDoConsumo(consumoMeses, out);
+		ConsumoMediaClassificacao(consumoMeses, out);
+
+		out.close();
+		System.out.println("\n✅ Relatório salvo com sucesso no arquivo: Relatório_consumo.txt");
+	}
+
+	// Calcular o consumo total;
+	public static void ConsumoTotalkwheMedia(int[] consumoMeses, PrintWriter out) {
+		int consumoTotal = 0;
+		int media = 0;
+		for (int consumo = 0; consumo < NUMERO_MES; consumo++) {
+			consumoTotal += consumoMeses[consumo];
+		}
+		// Calcular a média mensal;
+		media = consumoTotal / NUMERO_MES;
+
+		System.out.println("\n====================RELATÓRIOS=========================");
+		System.out.println("\nO consumo total de kwh dos meses foi de: " + consumoTotal + " kwh");
+		System.out.println("A média do consumo total dos meses foi de: " + media + " kwh");
+
+		out.println("\n====================RELATÓRIOS=========================");
+		out.println("\nO consumo total de kwh dos meses foi de: " + consumoTotal + " kwh");
+		out.println("A média do consumo total dos meses foi de: " + media + " kwh");
+
+	}
+	// o Identificar o mês com maior e menor consumo;
+
+	public static void MaiorMenorConsumoKwh(int[] consumo, PrintWriter out) {
+		int maior = consumo[0]; // Constantes
+		int menor = consumo[0]; // Constantes
+		int mesMaior = 0, mesMenor = 0;
+		// Laços para percorrer toda a matriz
+		for (int i = 0; i < NUMERO_MES; i++) {
+			if (consumo[i] > maior) {
+				maior = consumo[i];
+				mesMaior = i;
+			}
+			if (consumo[i] < menor) {
+				menor = consumo[i];
+				mesMenor = i;
+			}
+		}
+		System.out.println("O maior consumo de energia foi de: " + maior + " kwh no mês de " + MES_ANO[mesMaior]);
+		System.out.println("O menor consumo de energia foi de: " + menor + " kwh no mês de " + MES_ANO[mesMenor]);
+
+		out.println("O maior consumo de energia foi de: " + maior + " kwh no mês de " + MES_ANO[mesMaior]);
+		out.println("O menor consumo de energia foi de: " + menor + " kwh no mês de " + MES_ANO[mesMenor]);
+
+	}
+	// o Classificar o consumo:
+	//  Até 150 kWh/mês → Baixo
+	//  De 151 a 300 kWh/mês → Moderado
+	//  Acima de 300 kWh/mês → Elevado
+
+	public static void ClassificacaoDoConsumo(int[] consumo, PrintWriter out) {
+		System.out.println("\nClassificação do consumo por mês: ");
+		out.println("\nClassificação do consumo por mês: ");
+		for (int i = 0; i < NUMERO_MES; i++) {
+			String classificacao;
+			if (consumo[i] <= 150) {
+				classificacao = "Baixo";
+			} else if (consumo[i] <= 300) {
+				classificacao = "Moderado";
+			} else {
+				classificacao = "Elevado";
+			}
+
+			System.out.printf("%-10s: %4d kWh → %s%n", MES_ANO[i], consumo[i], classificacao);
+			out.printf("%-10s: %4d kWh → %s%n", MES_ANO[i], consumo[i], classificacao);
+		}
+	}
+
+	// Calcular o consumo total;
+	public static void ConsumoMediaClassificacao(int[] consumoMeses, PrintWriter out) {
+		int consumoTotal = 0;
+		int media = 0;
+		for (int consumo = 0; consumo < NUMERO_MES; consumo++) {
+			consumoTotal += consumoMeses[consumo];
+		}
+		// Calcular a média mensal;
+		media = consumoTotal / NUMERO_MES;
+
+		String classificacao;
+		if (media <= 150) {
+			classificacao = "Baixo";
+		} else if (media <= 300) {
+			classificacao = "Moderado";
+		} else {
+			classificacao = "Elevado";
+		}
+		System.out.printf("A média de consumo total dos meses foi de:%4d kWh → %s%n", media, classificacao);
+		out.printf("A média de consumo total dos meses foi de:%4d kWh → %s%n", media, classificacao);
+
+	}
+
+}

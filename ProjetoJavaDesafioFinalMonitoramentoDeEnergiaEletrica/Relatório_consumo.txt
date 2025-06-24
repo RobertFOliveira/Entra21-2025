@@ -1,0 +1,22 @@
+
+====================RELATÓRIOS=========================
+
+O consumo total de kwh dos meses foi de: 1854 kwh
+A média do consumo total dos meses foi de: 154 kwh
+O maior consumo de energia foi de: 500 kwh no mês de Fevereiro
+O menor consumo de energia foi de: 1 kwh no mês de Setembro
+
+Classificação do consumo por mês: 
+Janeiro   :  150 kWh → Baixo
+Fevereiro :  500 kWh → Elevado
+Março     :  300 kWh → Moderado
+Abril     :  100 kWh → Baixo
+Maio      :  200 kWh → Moderado
+Junho     :  100 kWh → Baixo
+Julho     :  200 kWh → Moderado
+Agosto    :  300 kWh → Moderado
+Setembro  :    1 kWh → Baixo
+Outubro   :    1 kWh → Baixo
+Novembro  :    1 kWh → Baixo
+Dezembro  :    1 kWh → Baixo
+A média de consumo total dos meses foi de: 154 kWh → Moderado

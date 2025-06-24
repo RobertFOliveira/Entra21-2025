@@ -1,0 +1,77 @@
+===============================================================
+RELATÓRIO COMENTADO DO CÓDIGO - MONITORAMENTO DE ENERGIA
+===============================================================
+
+1. INÍCIO DO PROGRAMA
+
+O programa começa importando as bibliotecas necessárias:
+- Scanner: para entrada de dados via teclado.
+- FileWriter e PrintWriter: para gravar os dados em um arquivo .txt.
+- IOException: para tratamento de erros de entrada e saída.
+
+2. CONSTANTES GLOBAIS
+
+- NUMERO_MES: constante que define que o ano tem 12 meses.
+- MES_ANO: vetor com os nomes dos 12 meses, usado para exibir mensagens amigáveis e legíveis.
+
+3. MÉTODO MAIN
+
+Responsável pela execução principal do programa:
+
+3.1. Entrada de Dados:
+- Um vetor de inteiros é criado para armazenar os consumos de energia de cada mês.
+- O usuário é solicitado a digitar o consumo de kWh mês a mês, com base no nome de cada mês.
+
+3.2. Criação do Arquivo:
+- Um arquivo de nome "Relatório_consumo.txt" é criado com PrintWriter.
+- Já no início, é escrita uma linha de título para o relatório.
+
+3.3. Chamada das Funções:
+- As funções responsáveis por calcular o consumo total, média, identificar os extremos e classificar os consumos são chamadas e gravam as saídas tanto no console quanto no arquivo.
+
+3.4. Encerramento:
+- O arquivo é fechado corretamente com `out.close()` para garantir que todos os dados foram salvos.
+
+---------------------------------------------------------------
+4. FUNÇÃO: ConsumoTotalkwheMedia
+---------------------------------------------------------------
+
+Essa função:
+- Soma todos os valores do vetor `consumoMeses`.
+- Calcula a média mensal dividindo o total por 12.
+- Escreve os resultados no console e no arquivo.
+
+---------------------------------------------------------------
+5. FUNÇÃO: MaiorMenorConsumoKwh
+---------------------------------------------------------------
+
+Essa função:
+- Analisa o vetor `consumo` para encontrar o maior e o menor consumo.
+- Armazena os índices correspondentes para obter o nome do mês.
+- Escreve o maior e o menor consumo, com o respectivo mês, no console e no arquivo.
+
+---------------------------------------------------------------
+6. FUNÇÃO: ClassificacaoDoConsumo
+---------------------------------------------------------------
+
+Essa função:
+- Classifica o consumo de cada mês com base nos critérios:
+   Até 150 kWh   → Baixo
+   151 a 300 kWh → Moderado
+   Acima de 300  → Elevado
+- Escreve mês a mês a classificação do consumo no console e no arquivo.
+
+---------------------------------------------------------------
+7. CONCLUSÃO
+
+O programa cumpre os seguintes objetivos:
+✅ Recebe os dados do usuário mês a mês
+✅ Calcula total e média de consumo
+✅ Identifica meses de maior e menor consumo
+✅ Classifica o consumo de cada mês
+✅ Gera relatório completo no console e em arquivo .txt
+
+Arquivo gerado: Relatório_consumo.txt
+
+FIM DO RELATÓRIO.
+===============================================================
